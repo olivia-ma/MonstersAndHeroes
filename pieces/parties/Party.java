@@ -1,7 +1,30 @@
 package pieces.parties;
 
-import pieces.creatures.Hero; import java.util.*;
-public class Party { private List<Hero> heroes = new ArrayList<>(); public Party(int cap) {} public void
-addHero(Hero h){ heroes.add(h); } public List<Hero> getHeroes(){ return
-Collections.unmodifiableList(heroes); } public int size(){ return heroes.size(); } public int highestLevel(){ int
-m=1; for (Hero h: heroes) m = Math.max(m, h.getLevel()); return m; } }
+// manages groups of creatures with composite operations
+// container supporting team wide operations, checks if all members are dead
+
+import pieces.creatures.Hero;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Party {
+    private List<Hero> heroes = new ArrayList<Hero>();
+
+    public Party(int initialSize) {
+        // empty; callers will add heroes
+    }
+
+    public void addHero(Hero h) { 
+        if (h != null){
+            heroes.add(h); 
+        }
+    }
+
+    public List<Hero> getHeroes() { 
+        return heroes; 
+    }
+
+    public int size() { 
+        return heroes.size(); 
+    }
+}

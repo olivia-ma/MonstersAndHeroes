@@ -1,4 +1,6 @@
 package pieces.creatures;
 
-public enum MonsterType { DRAGON, EXOSKELETON, SPIRIT }
+// type safe enumerations enabling polymorphic behavior without subclass explosion
+// supports flexible monster variety while maintaining single class hierachies 
 
+public enum MonsterType { DRAGON, SPIRIT, EXOSKELETON }

@@ -1,6 +1,22 @@
 package inventory.items;
 
-public class Armor extends Item { private int reduction; public Armor(String name,int price,int level,int
-reduction){ super(name,price,level); this.reduction=reduction; } public int getReduction(){ return
-reduction; } }
+// item subclass, has damage reduction
 
+public class Armor extends Item {
+
+    private int damageReduction;
+
+    public Armor(String name, int cost, int requiredLevel, int reduction) {
+        super(name, cost, requiredLevel);
+        this.damageReduction = reduction;
+    }
+
+    public int getDamageReduction() {
+        return damageReduction;
+    }
+
+    @Override
+    public String toString() {
+        return name + " (Armor -" + damageReduction + ", lvl " + requiredLevel + ")";
+    }
+}

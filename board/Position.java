@@ -1,5 +1,7 @@
 package board;
 
+// immutable coordinate container, allows for data integretity 
+// value object for spatial positioning, has no behavior
 
 public final class Position {
     private final int x;

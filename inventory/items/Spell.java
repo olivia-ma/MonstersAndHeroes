@@ -1,6 +1,36 @@
 package inventory.items;
 
-public class Spell extends Item { public enum SpellType{ FIRE, ICE, LIGHTNING } private int damage, cost;
-private SpellType type; public Spell(String name,int price,int level,int damage,int cost,SpellType type)
-{ super(name,price,level); this.damage=damage; this.cost=cost; this.type=type; } public int getDamage()
-{ return damage; } public int getCost(){ return cost; } public SpellType getSpellType(){ return type; } }
+// item subclass, has mana based combat with secondary effects
+
+public class Spell extends Item {
+
+    public enum SpellType { FIRE, ICE, LIGHTNING }
+
+    private int damage;
+    private int manaCost;
+    private SpellType type;
+
+    public Spell(String name, int cost, int requiredLevel, int damage, int manaCost, SpellType type) {
+        super(name, cost, requiredLevel);
+        this.damage = damage;
+        this.manaCost = manaCost;
+        this.type = type;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public int getManaCost() {
+        return manaCost;
+    }
+
+    public SpellType getType() {
+        return type;
+    }
+
+    @Override
+    public String toString() {
+        return name + " (" + type + ", DMG " + damage + ", MP " + manaCost + ")";
+    }
+}

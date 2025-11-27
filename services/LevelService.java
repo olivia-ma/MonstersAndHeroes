@@ -1,61 +1,50 @@
 package services;
 
+// service class handling progression and scaling logic
+// addExp() manages hero leveling
+// scaleMonsters() balances encounters to party level
+// promotes single responsibility by isolating level related calcs
+
+import pieces.creatures.Monster;
 import pieces.creatures.Hero;
 
-/**
- * Handles all leveling logic for heroes.
- * 
- * Leveling rules implemented according to assignment spec:
- *  - Hero levels up when EXP >= level * 10
- *  - On level up:
- *      * Strength, Dexterity, Agility increase by 5%
- *      * Mana increases by 10%
- *      * HP resets to level * 100
- *  - EXP rolls over after each level
- *
- * This service does NOT modify default attributes loaded from files;
- * each new game reloads defaults via FileParserService.
- */
+import java.util.List;
+
 public class LevelService {
 
-    /**
-     * Adds experience to a hero and applies level-up rules.
-     *
-     * @param hero The hero gaining experience.
-     * @param exp Amount of EXP gained.
-     */
-    public void addExperience(Hero hero, int exp) {
-        if (hero == null)
-            return;
+    public LevelService() { }
 
-        hero.addRawExp(exp);   
-        tryLevelUp(hero);
+    public void addExp(Hero h, int amount) {
+        h.addExp(amount);
     }
 
-    /**
-     * Checks if the hero has enough EXP to level up and applies the level up
-     * process repeatedly if needed.
-     */
-    private void tryLevelUp(Hero hero) {
-        while (hero.getExp() >= hero.getLevel() * 10) {
-            hero.setExp(hero.getExp() - hero.getLevel() * 10);
-            hero.setLevel(hero.getLevel() + 1);
+    
+    public void scaleMonsters(List<Monster> monsters, int targetLevel) {
+        if (monsters == null || monsters.isEmpty()){
+            return;
+        }
 
-            applyLevelUpBonuses(hero);
+        for (Monster m : monsters) {
+
+            int original = Math.max(1, m.getLevel());
+            double factor = targetLevel / (double) original;
+
+            // scale base monster stats
+            m.setLevel(targetLevel);
+            m.setHp(targetLevel * 100);
+
+            m.setDamage(m.getDamage() * factor * 1.15);   // boost slightly
+            m.setDefense(m.getDefense() * factor * 1.10);
+
+            // dodge remains whatever type gives (but clamp)
+            if (m.getDodge() > 70){
+                m.setDodge(70);
+            }
+            
+            if (m.getDodge() < 0){
+                m.setDodge(0);
+            }
         }
     }
 
-    /**
-     * Applies the stat boosts for a level-up event.
-     */
-    private void applyLevelUpBonuses(Hero hero) {
-        hero.setStrength(hero.getStrength() * 1.05);
-        hero.setDexterity(hero.getDexterity() * 1.05);
-        hero.setAgility(hero.getAgility() * 1.05);
-
-        hero.setMp(hero.getMp() * 1.10);
-
-        // HP resets to base formula: level * 100
-        hero.setHp(hero.getLevel() * 100);
-    }
 }
