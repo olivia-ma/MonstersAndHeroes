@@ -140,7 +140,6 @@ If the steps above didn't work, try the steps below:
 (I think what is input and output is kind of self explanatory... so I'll summarize it here! Everything that ends with an indent, '?', or ':' is an INPUT. Everything else is an OUTPUT. Hope that makes sense! I didn't want to clutter up the example and make it confusing ;w;)
 
 ```
-
 (base) PS C:\Users\17815\Desktop\CS611\5Assignment> java -cp bin main.Main
 
 **********************************
@@ -149,71 +148,13 @@ If the steps above didn't work, try the steps below:
 *                                *
 **********************************
 
-How many heroes in party? (1-3) [default 2]:
-2
-Creating 2 heroes. Choose types and names:
-Hero 1: pick class: 1)Warrior 2)Sorcerer 3)Paladin [default 1]:
-1 
-Choose a Warrior from the list below (type number or letter):
-A) Gaerdal_Ironhand (Lvl 1 HP:100 MP:100)
-B) Sehanine_Monnbow (Lvl 1 HP:100 MP:600)
-C) Muamman_Duathall (Lvl 1 HP:100 MP:300)
-D) Flandal_Steelskin (Lvl 1 HP:100 MP:200)
-E) Undefeated_Yoj (Lvl 1 HP:100 MP:400)
-F) Eunoia_Cyn (Lvl 1 HP:100 MP:400)
-a
-Enter name [default Gaerdal_Ironhand]: 
-Olivia
-Hero 2: pick class: 1)Warrior 2)Sorcerer 3)Paladin [default 1]: 
-2
-Choose a Sorcerer from the list below (type number or letter):
-A) Rillifane_Rallathil (Lvl 1 HP:100 MP:1300)
-B) Segojan_Earthcaller (Lvl 1 HP:100 MP:900)
-C) Reign_Havoc (Lvl 1 HP:100 MP:800)
-D) Reverie_Ashels (Lvl 1 HP:100 MP:900)
-E) Kalabar (Lvl 1 HP:100 MP:800)
-F) Skye_Soar (Lvl 1 HP:100 MP:1000)
-a
-Enter name [default Rillifane_Rallathil]: 
-Joseph
- .  .  .  .  .  #  #  #
- M  .  .  .  M  M  #  .
- M  .  #  .  #  M  #  M
- .  .  M  P  .  M  .  .
- M  .  .  .  M  .  M  .
- .  .  .  .  M  .  .  .
+A tactical RPG where heroes battle monsters, gain experience,
+and buy gear in markets. Explore the grid world, fight random
+encounters, and level up indefinitely!
 
---- Party Info ---
-Olivia L1 HP:100 MP:100 Str:700 Dex:600 Agi:500 Gold:1354 Weapon:Sword Armor:Platinum_Shield
-Joseph L1 HP:100 MP:100 Str:750 Dex:500 Agi:450 Gold:2500 Weapon:Sword Armor:Platinum_Shield
-Commands: W/A/S/D move, I inventory, R restart map, Q quit
-w 
--- A wild group of monsters appears! --
-Battle started against 2 monsters!
-Olivia [##############################] HP:100 [##############################] MP:100
-Choose action for Olivia: 1)Attack 2)Cast Spell 3)Use Potion 4)Equip 5)Inspect
-5
-Olivia L1 HP:100 MP:100 Str:700 Dex:600 Agi:500 Gold:1354 Weapon:Sword Armor:Platinum_Shield
-Monsters:
-BunsenBurner#298 L1 HP:100 DMG:86 DEF:137 DODGE:45
-Kas-Ethelinh#494 L1 HP:100 DMG:69 DEF:110 DODGE:60
-Olivia [##############################] HP:100 [##############################] MP:100
-Choose action for Olivia: 1)Attack 2)Cast Spell 3)Use Potion 4)Equip 5)Inspect
-a
-Defaulting to attack.
-Joseph [##############################] HP:100 [##############################] MP:100
-Choose action for Joseph: 1)Attack 2)Cast Spell 3)Use Potion 4)Equip 5)Inspect
-Exception in thread "main" java.util.NoSuchElementException: No line found
-        at java.util.Scanner.nextLine(Scanner.java:1540)
-        at battle.Battle.fight(Battle.java:55)
-        at main.Game.mainLoop(Game.java:103)
-(base) PS C:\Users\17815\Desktop\CS611\5Assignment> java -cp bin main.Main
-
-**********************************
-*                                *
-*  Legends: Monsters and Heroes  *
-*                                *
-**********************************
+CONTROLS:
+W/A/S/D - Move | I - Inventory | M - Enter Market
+Q - Quit | R - Reset Map
 
 How many heroes in party? (1-3) [default 2]: 
 2
@@ -595,7 +536,6 @@ Commands: W/A/S/D move, I inventory, R restart map, Q quit
 q
 Quitting game.
 (base) PS C:\Users\17815\Desktop\CS611\5Assignment> 
-
 ```
 
 

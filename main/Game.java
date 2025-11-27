@@ -37,6 +37,14 @@ public class Game {
                         "*  Legends: Monsters and Heroes  *\r\n" + //
                         "*                                *\r\n" + //
                         "**********************************\n");
+
+        ui.println("A tactical RPG where heroes battle monsters, gain experience,\r\n" + //
+                        "and buy gear in markets. Explore the grid world, fight random\r\n" + //
+                        "encounters, and level up indefinitely!\r\n" + //
+                        "\r\n" + //
+                        "CONTROLS:\r\n" + //
+                        "W/A/S/D - Move | I - Inventory | M - Enter Market\r\n" + //
+                        "Q - Quit | R - Reset Map\n");
         
         parser = new FileParserService();
         setupParty(parser);
